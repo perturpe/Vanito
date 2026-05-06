@@ -130,9 +130,22 @@ class VanityMinerApp(App):
     TITLE = "Vanito"
 
     CSS = """
-    Screen { background: #07101e; }
-    Header { background: #091525; color: #38a3d4; text-style: bold; }
-    Footer { background: #091525; color: #1f3a52; }
+    /* ── palette ──────────────────────────────────────────────────────────────
+       bg-deep    #0e0b1e   darkest background
+       bg-card    #161230   card / panel background
+       border-dim #2a2050   inactive borders
+       border-hi  #7c3aed   active / focused borders  (Phantom purple)
+       accent     #9945ff   primary purple
+       sol-green  #19fb9b   Solana green — success states
+       gold       #f0c040   target prefix highlight
+       text-hi    #e8deff   primary text
+       text-mid   #7060b0   secondary / label text
+       text-dim   #2e2550   very dim / hint text
+    ── */
+
+    Screen { background: #0e0b1e; }
+    Header { background: #110e22; color: #9945ff; text-style: bold; }
+    Footer { background: #110e22; color: #2e2550; }
     .view  { width: 1fr; height: 1fr; }
 
 
@@ -142,15 +155,15 @@ class VanityMinerApp(App):
     #home-card {
         width: 58;
         padding: 2 4;
-        background: #0a1828;
-        border: round #14304d;
+        background: #161230;
+        border: round #2a2050;
     }
 
-    #logo      { text-align: center; color: #38a3d4; text-style: bold; }
-    #tagline   { text-align: center; color: #1d3650; margin-bottom: 1; }
+    #logo    { text-align: center; color: #9945ff; text-style: bold; }
+    #tagline { text-align: center; color: #2e2550; margin-bottom: 1; }
 
     #prefix-label {
-        color: #4a87b8;
+        color: #7060b0;
         text-style: bold;
         margin-top: 1;
         margin-bottom: 1;
@@ -158,22 +171,21 @@ class VanityMinerApp(App):
     }
 
     #prefix-input {
-        border: round #14304d;
-        background: #050d18;
-        color: #a8c8e8;
+        border: round #2a2050;
+        background: #0a0818;
+        color: #c8b8f0;
         margin-bottom: 1;
     }
-    #prefix-input:focus { border: round #1a76b5; }
+    #prefix-input:focus { border: round #7c3aed; }
 
     #diff-hint {
         height: 1;
         margin-bottom: 1;
-        color: #4a87b8;
         text-align: center;
     }
 
     #input-error {
-        color: #c0392b;
+        color: #f87171;
         text-align: center;
         text-style: bold;
         display: none;
@@ -185,31 +197,31 @@ class VanityMinerApp(App):
         width: 100%;
         margin-top: 1;
         margin-bottom: 1;
-        background: #145a8c;
-        color: #cce8f8;
+        background: #5b21b6;
+        color: #e8deff;
         text-style: bold;
-        border: tall #1a76b5;
+        border: tall #7c3aed;
     }
-    #start-btn:hover { background: #1a76b5; color: #ffffff; }
+    #start-btn:hover { background: #7c3aed; color: #ffffff; }
 
     #history-btn {
         width: 100%;
         background: transparent;
-        color: #1f3a52;
-        border: round #112234;
+        color: #2e2550;
+        border: round #1e1840;
     }
-    #history-btn:hover { background: #0d1e30; color: #2d6a9f; }
+    #history-btn:hover { background: #1a1535; color: #7060b0; border: round #3d3070; }
 
     #wallet-count {
         text-align: center;
-        color: #1d3650;
+        color: #2e2550;
         margin-top: 1;
         height: 1;
     }
 
     #home-tip {
         text-align: center;
-        color: #142030;
+        color: #1e1840;
         margin-top: 1;
         height: 1;
     }
@@ -221,32 +233,32 @@ class VanityMinerApp(App):
     #mining-card {
         width: 58;
         padding: 2 4;
-        background: #0a1828;
-        border: round #1a76b5;
+        background: #161230;
+        border: round #7c3aed;
     }
 
-    #mining-header   { text-align: center; color: #38a3d4; text-style: bold; margin-bottom: 0; }
-    #mining-subtitle { text-align: center; color: #1d3650; margin-bottom: 1; height: 1; }
+    #mining-header   { text-align: center; color: #9945ff; text-style: bold; margin-bottom: 0; }
+    #mining-subtitle { text-align: center; color: #2e2550; margin-bottom: 1; height: 1; }
 
     #stats-grid { height: auto; margin: 1 0; }
     .stat-col   { width: 1fr; padding-right: 2; }
     .stat-block { height: 3; margin-bottom: 1; }
-    .stat-label { color: #1f3a52; text-style: bold; height: 1; }
-    .stat-value { color: #7bbcdc; height: 1; }
+    .stat-label { color: #3a3060; text-style: bold; height: 1; }
+    .stat-value { color: #a990e0; height: 1; }
 
     #prog-section { margin: 1 0 0 0; }
-    #prog-label   { color: #1f3a52; text-style: bold; height: 1; margin-bottom: 1; }
+    #prog-label   { color: #3a3060; text-style: bold; height: 1; margin-bottom: 1; }
     #progress-bar { height: 1; }
 
     #cancel-btn {
         width: 100%;
         margin-top: 2;
-        background: #1a0808;
-        color: #c06060;
-        border: round #3d1010;
+        background: #1f0a0a;
+        color: #f87171;
+        border: round #4c1010;
         text-style: bold;
     }
-    #cancel-btn:hover { background: #8b1c1c; color: #ffd0d0; border: round #b71c1c; }
+    #cancel-btn:hover { background: #7f1d1d; color: #fecaca; border: round #dc2626; }
 
 
     /* ════════════ RESULT ════════════ */
@@ -255,29 +267,27 @@ class VanityMinerApp(App):
     #result-card {
         width: 64;
         padding: 2 4;
-        background: #0a1828;
-        border: round #1a5c2a;
+        background: #161230;
+        border: round #0d6641;
     }
 
-    #result-header   { text-align: center; color: #4caf7d; text-style: bold; }
-    #result-subtitle { text-align: center; color: #193d26; height: 1; margin-bottom: 1; }
+    #result-header   { text-align: center; color: #19fb9b; text-style: bold; }
+    #result-subtitle { text-align: center; color: #0a3d28; height: 1; margin-bottom: 1; }
 
-    /* address section */
     #addr-section { margin-top: 1; }
-    #addr-step    { color: #1a76b5; text-style: bold; height: 1; }
-    #addr-desc    { color: #1d3650; height: 1; margin-bottom: 1; }
+    #addr-step    { color: #7c3aed; text-style: bold; height: 1; }
+    #addr-desc    { color: #2e2550; height: 1; margin-bottom: 1; }
 
-    /* key section */
     #key-section  { margin-top: 1; }
-    #key-step     { color: #b8860b; text-style: bold; height: 1; }
-    #key-desc     { color: #1d3650; height: 1; margin-bottom: 1; }
+    #key-step     { color: #d97706; text-style: bold; height: 1; }
+    #key-desc     { color: #2e2550; height: 1; margin-bottom: 1; }
 
-    .res-row   { height: 3; margin-bottom: 1; }
+    .res-row { height: 3; margin-bottom: 1; }
 
     .res-value {
-        color: #76c7a8;
-        background: #050d18;
-        border: round #14402a;
+        color: #19fb9b;
+        background: #080616;
+        border: round #0d4d33;
         padding: 0 1;
         width: 1fr;
         height: 3;
@@ -287,31 +297,31 @@ class VanityMinerApp(App):
         width: 10;
         height: 3;
         margin-left: 1;
-        background: #0d2030;
-        color: #2d6a9f;
-        border: round #112234;
+        background: #1a1535;
+        color: #3a3060;
+        border: round #1e1840;
         text-style: bold;
     }
-    .copy-btn:hover  { background: #1a76b5; color: #ffffff; border: round #1a76b5; }
-    .copy-btn.copied { background: #1b5e20; color: #66bb6a; border: round #2e7d32; }
+    .copy-btn:hover  { background: #5b21b6; color: #e8deff; border: round #7c3aed; }
+    .copy-btn.copied { background: #064e3b; color: #19fb9b; border: round #0d6641; }
 
     #result-warning {
         text-align: center;
-        color: #7a5500;
+        color: #92400e;
         height: 1;
         margin: 1 0;
     }
 
     #phantom-tip {
         text-align: center;
-        color: #1a3050;
+        color: #1e1840;
         height: 1;
         margin-bottom: 1;
     }
 
     #result-meta {
         text-align: center;
-        color: #142028;
+        color: #1e1840;
         height: 1;
     }
 
@@ -319,21 +329,21 @@ class VanityMinerApp(App):
 
     #mine-again-btn {
         width: 1fr;
-        background: #145a8c;
-        color: #cce8f8;
+        background: #5b21b6;
+        color: #e8deff;
         text-style: bold;
-        border: tall #1a76b5;
+        border: tall #7c3aed;
         margin-right: 1;
     }
-    #mine-again-btn:hover { background: #1a76b5; color: #ffffff; }
+    #mine-again-btn:hover { background: #7c3aed; color: #ffffff; }
 
     #result-history-btn {
         width: 1fr;
         background: transparent;
-        color: #1f3a52;
-        border: round #112234;
+        color: #2e2550;
+        border: round #1e1840;
     }
-    #result-history-btn:hover { background: #0d1e30; color: #2d6a9f; }
+    #result-history-btn:hover { background: #1a1535; color: #7060b0; }
 
 
     /* ════════════ HISTORY ════════════ */
@@ -346,7 +356,7 @@ class VanityMinerApp(App):
     }
 
     #hist-title {
-        color: #38a3d4;
+        color: #9945ff;
         text-style: bold;
         width: 1fr;
         content-align: center middle;
@@ -354,7 +364,7 @@ class VanityMinerApp(App):
 
     #hist-note {
         text-align: center;
-        color: #1d3650;
+        color: #2e2550;
         height: 1;
         margin-bottom: 1;
     }
@@ -362,10 +372,10 @@ class VanityMinerApp(App):
     #back-btn {
         width: 14;
         background: transparent;
-        color: #1f3a52;
-        border: round #112234;
+        color: #2e2550;
+        border: round #1e1840;
     }
-    #back-btn:hover { background: #0d1e30; color: #2d6a9f; }
+    #back-btn:hover { background: #1a1535; color: #7060b0; }
 
     DataTable { height: 1fr; }
     """
@@ -524,11 +534,11 @@ class VanityMinerApp(App):
         err.display = False
         label, desc = difficulty_hint(len(text))
         colors = {
-            "Easy":      "#4caf7d",
-            "Moderate":  "#e8c84a",
-            "Hard":      "#e07030",
-            "Very Hard": "#c04040",
-            "Extreme":   "#a02020",
+            "Easy":      "#19fb9b",
+            "Moderate":  "#f0c040",
+            "Hard":      "#f97316",
+            "Very Hard": "#f87171",
+            "Extreme":   "#dc2626",
         }
         color = colors.get(label, "#4a87b8")
         hint.update(f"[bold {color}]{label}[/bold {color}]  {desc}")
@@ -604,7 +614,7 @@ class VanityMinerApp(App):
     # ── mining ────────────────────────────────────────────────────────────────
 
     def _init_stats(self, target: str) -> None:
-        self.query_one("#stat-target").update(f"[bold #e8c84a]{target}...[/]")
+        self.query_one("#stat-target").update(f"[bold #f0c040]{target}...[/]")
         self.query_one("#stat-attempts").update("0")
         self.query_one("#stat-speed").update("—")
         self.query_one("#stat-eta").update("Calculating...")
@@ -669,18 +679,18 @@ class VanityMinerApp(App):
         ratio      = min(msg.attempts / difficulty, 1.0) if difficulty > 0 else 0
 
         self.query_one("#stat-attempts").update(f"{msg.attempts:,}")
-        self.query_one("#stat-speed").update(f"[#4caf7d]{msg.speed:,.0f}[/] / sec")
+        self.query_one("#stat-speed").update(f"[#19fb9b]{msg.speed:,.0f}[/] / sec")
 
         if msg.speed > 0:
             eta = max((difficulty - msg.attempts) / msg.speed, 0)
-            self.query_one("#stat-eta").update(f"[#38a3d4]{fmt_time(eta)}[/]")
+            self.query_one("#stat-eta").update(f"[#a78bfa]{fmt_time(eta)}[/]")
 
         width  = 38
         filled = int(width * ratio)
         bar = (
-            f"[#1a76b5]{'█' * filled}[/]"
-            f"[#0d1e30]{'█' * (width - filled)}[/]"
-            f"  [bold]{ratio * 100:.1f}%[/bold]"
+            f"[#7c3aed]{'█' * filled}[/]"
+            f"[#1e1840]{'█' * (width - filled)}[/]"
+            f"  [bold #e8deff]{ratio * 100:.1f}%[/bold #e8deff]"
         )
         self.query_one("#progress-bar").update(bar)
 
