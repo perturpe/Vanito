@@ -1,0 +1,15 @@
+# sensitive / personal — never commit these
+found_wallets.txt
+phantom_wallet.txt
+*.session
+
+# system & editor
+.DS_Store
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
