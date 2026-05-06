@@ -1,3 +1,4 @@
 base58>=2.1.1
 PyNaCl>=1.6.2
 textual>=8.2.5
+pyperclip>=1.8.0

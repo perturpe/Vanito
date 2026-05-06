@@ -8,28 +8,28 @@ Generate a Solana wallet address that starts with any letters you choose.
 
 ## Requirements
 
-- macOS (uses `pbcopy` for clipboard and `osascript` for notifications)
+- **macOS, Windows, or Linux**
 - Python 3.8 or newer
 
 ## Installation
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/solana-vanity-wallet.git
-cd solana-vanity-wallet
+git clone https://github.com/perturpe/Vanito.git
+cd Vanito
 pip3 install -r requirements.txt
 ```
 
 ## Usage
 
-**Double-click** `Start.command` — or from the terminal:
+| Platform | Launcher |
+|----------|----------|
+| macOS    | Double-click `Start.command` |
+| Windows  | Double-click `Start.bat` |
+| Linux    | `python3 sol_vanity.py` |
 
-```bash
-python3 sol_vanity.py
-```
+Type your desired prefix (1–7 characters), hit **Generate My Wallet**, and the app searches using all your CPU cores. When a match is found:
 
-Type your desired prefix (1–7 characters), hit **Generate My Wallet**, and the app searches in the background using all your CPU cores. When a match is found:
-
-- A macOS notification pops up
+- A system notification pops up (macOS & Linux)
 - The result screen shows your **Wallet Address** and **Import Key** with one-click copy buttons
 - The wallet is saved to `found_wallets.txt` in the same folder
 

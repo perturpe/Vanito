@@ -63,16 +63,24 @@ def save_wallet(address: str, key: str) -> None:
 
 
 def notify(title: str, msg: str) -> None:
-    os.system(
-        f"osascript -e 'display notification \"{msg}\" "
-        f"with title \"{title}\" sound name \"Crystal\"'"
-    )
+    try:
+        system = __import__("platform").system()
+        if system == "Darwin":
+            os.system(
+                f"osascript -e 'display notification \"{msg}\" "
+                f"with title \"{title}\" sound name \"Crystal\"'"
+            )
+        elif system == "Linux":
+            os.system(f'notify-send "{title}" "{msg}"')
+        # Windows: no reliable built-in; skip silently
+    except Exception:
+        pass
 
 
 def copy_to_clipboard(text: str) -> bool:
     try:
-        import subprocess
-        subprocess.run("pbcopy", input=text.encode(), check=True)
+        import pyperclip
+        pyperclip.copy(text)
         return True
     except Exception:
         return False
